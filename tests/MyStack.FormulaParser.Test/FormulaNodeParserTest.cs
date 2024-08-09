@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using MyStack.FormulaParser.Numbers;
+using MyStack.FormulaParser.FormulaNodes;
+using MyStack.FormulaParser.FormulaNodes.Value;
 
 namespace MyStack.FormulaParser.Test
 {
@@ -8,7 +9,7 @@ namespace MyStack.FormulaParser.Test
         [Test]
         public void TestId()
         {
-            var idFormulaNodeParser = ServiceProvider.GetRequiredService<IdFormulaNodeParser>();
+            var idFormulaNodeParser = ServiceProvider.GetRequiredService<ObjectFormulaNodeParser>();
             var nodes = new List<FormulaNode>();
             var chars = "1+<1>".AsSpan();
             var result = false;

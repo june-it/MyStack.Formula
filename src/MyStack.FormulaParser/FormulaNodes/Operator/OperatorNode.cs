@@ -1,4 +1,4 @@
-﻿namespace MyStack.FormulaParser.Operators
+﻿namespace MyStack.FormulaParser.FormulaNodes.Operator
 {
     /// <summary>
     /// 表示操作符节点
@@ -16,7 +16,7 @@
         /// <summary>
         /// 获取操作符类型
         /// </summary>
-        public OperatorType OperatorType { get;  }
+        public OperatorType OperatorType { get; }
         /// <summary>
         /// 优先级
         /// </summary>

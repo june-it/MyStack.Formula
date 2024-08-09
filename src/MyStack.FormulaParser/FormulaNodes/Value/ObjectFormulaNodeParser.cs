@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MyStack.FormulaParser.Numbers
+namespace MyStack.FormulaParser.FormulaNodes.Value
 {
     /// <summary>
-    /// 表示Id节点转换器
+    /// 表示对象节点转换器
     /// </summary>
-    public class IdFormulaNodeParser : IFormulaNodeParser
+    public class ObjectFormulaNodeParser : IFormulaNodeParser
     {
         public int Priority => 98;
         protected char Prefix => '<';
         protected char Postfix => '>';
-        protected IIdValueProvider IdValueProvider { get; }
-        public IdFormulaNodeParser(IIdValueProvider idValueProvider)
+        protected IObjectDataProvider ObjectDataProvider { get; }
+        public ObjectFormulaNodeParser(IObjectDataProvider objectDataProvider)
         {
-            IdValueProvider = idValueProvider;
+            ObjectDataProvider = objectDataProvider;
         }
         public bool Parse(ReadOnlySpan<char> chars, ref int index, ref List<FormulaNode> nodes)
         {
@@ -32,8 +32,8 @@ namespace MyStack.FormulaParser.Numbers
                     }
                 }
                 var id = chars.Slice(startIndex, length).ToString();
-                // TODO:查询数据源中的值
-                var value = IdValueProvider.GetValueAsync(id).Result;
+                // 查询数据源中的值
+                var value = ObjectDataProvider.GetValueAsync(id).Result;
                 nodes.Add(new NumberNode(value));
                 return true;
             }

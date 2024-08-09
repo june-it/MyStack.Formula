@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 
-namespace MyStack.FormulaParser.Numbers
+namespace MyStack.FormulaParser.FormulaNodes.Value
 {
-    public interface IIdValueProvider
+    public interface IObjectDataProvider
     {
         Task<double> GetValueAsync(string id);
     }

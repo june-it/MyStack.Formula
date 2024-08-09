@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MyStack.FormulaParser.Numbers
+namespace MyStack.FormulaParser.FormulaNodes.Value
 {
     /// <summary>
     /// 数值节点转换器实现

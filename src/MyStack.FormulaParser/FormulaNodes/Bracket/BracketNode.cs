@@ -1,4 +1,4 @@
-﻿namespace MyStack.FormulaParser.Brackets
+﻿namespace MyStack.FormulaParser.FormulaNodes.Bracket
 {
     /// <summary>
     /// 表示圆括号节点

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MyStack.FormulaParser.Brackets
+namespace MyStack.FormulaParser.FormulaNodes.Bracket
 {
     public class BracketFormulaNodeParser : IFormulaNodeParser
-    { 
+    {
         public int Priority => 2;
         protected char LeftBracket = '(';
         protected char RightBracket = ')';

@@ -1,36 +1,22 @@
-﻿using System;
+﻿using MyStack.FormulaParser.FormulaNodes.Bracket;
+using MyStack.FormulaParser.FormulaNodes.Operator;
+using MyStack.FormulaParser.FormulaNodes.Value;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using MyStack.FormulaParser.Brackets;
-using MyStack.FormulaParser.Numbers;
-using MyStack.FormulaParser.Operators;
 
-namespace MyStack.FormulaParser
+namespace MyStack.FormulaParser.FormulaNodes
 {
-    public class FormulaAnalyzer
+    /// <summary>
+    /// 逆波兰式（Reverse Polish Notation，RPN，或逆波兰记法）
+    /// </summary>
+    public interface IRpnCalculator
     {
-        public FormulaAnalyzer(IEnumerable<IFormulaNodeParser> nodeParsers)
-        {
-            NodeParsers = nodeParsers;
-        }
-        protected IEnumerable<IFormulaNodeParser> NodeParsers { get; set; }
-        protected virtual List<FormulaNode> Analysis(string input)
-        {
-            if (input == null) throw new ArgumentNullException(nameof(input), "输入的公式值不能为空。");
-            var nodes = new List<FormulaNode>();
-            var chars = input.AsSpan();
-            for (int i = 0; i < chars.Length; i++)
-            {
-                foreach (var nodeParser in NodeParsers.OrderByDescending(x => x.Priority))
-                {
-                    if (nodeParser.Parse(chars, ref i, ref nodes))
-                        break;
-                }
-            }
-            return nodes;
-        }
-
-        protected virtual List<FormulaNode> ChangeToRPN(List<FormulaNode> nodes)
+        List<FormulaNode> Preprocessing(List<FormulaNode> nodes);
+        double Calculate(List<FormulaNode> rpnNodes);
+    }
+    public class DefaultRpnCalculator : IRpnCalculator
+    {
+        public List<FormulaNode> Preprocessing(List<FormulaNode> nodes)
         {
             var rpnNodes = new List<FormulaNode>();
             var tempNodes = new Stack<FormulaNode>();
@@ -92,10 +78,8 @@ namespace MyStack.FormulaParser
             }
             return rpnNodes;
         }
-
-        protected virtual double CalculationRPN(List<FormulaNode> rpnNodes)
+        public double Calculate(List<FormulaNode> rpnNodes)
         {
-            double result = 0;
             Stack<FormulaNode> numberNodes = new Stack<FormulaNode>();
             foreach (var node in rpnNodes)
             {
@@ -118,15 +102,7 @@ namespace MyStack.FormulaParser
                     numberNodes.Push(new NumberNode(value));
                 }
             }
-            result = ((NumberNode)numberNodes.Pop()).Value;
-            return result;
-        }
-
-        public double Calculation(string input)
-        {
-            var nodes = Analysis(input);
-            var rpnNodes = ChangeToRPN(nodes);
-            return CalculationRPN(rpnNodes);
+            return ((NumberNode)numberNodes.Pop()).Value;
         }
     }
 }

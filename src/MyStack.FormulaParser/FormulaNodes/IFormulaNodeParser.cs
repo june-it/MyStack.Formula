@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MyStack.FormulaParser
+namespace MyStack.FormulaParser.FormulaNodes
 {
     /// <summary>
     /// 表示公式节点转换器接口
@@ -21,5 +21,5 @@ namespace MyStack.FormulaParser
         /// <param name="nodes">节点列表</param>
         /// <returns></returns>
         bool Parse(ReadOnlySpan<char> chars, ref int index, ref List<FormulaNode> nodes);
-    } 
+    }
 }

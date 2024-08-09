@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MyStack.FormulaParser.Operators
+namespace MyStack.FormulaParser.FormulaNodes.Operator
 {
     public class OperatorFormulaNodeParser : IFormulaNodeParser
     {

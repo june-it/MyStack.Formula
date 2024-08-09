@@ -1,8 +1,8 @@
-﻿namespace MyStack.FormulaParser
+﻿namespace MyStack.FormulaParser.FormulaNodes
 {
-   /// <summary>
-   /// 表示节点类型
-   /// </summary>
+    /// <summary>
+    /// 表示节点类型
+    /// </summary>
     public enum NodeType
     {
         /// <summary>

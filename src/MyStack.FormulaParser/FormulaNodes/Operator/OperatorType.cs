@@ -1,4 +1,4 @@
-﻿namespace MyStack.FormulaParser.Operators
+﻿namespace MyStack.FormulaParser.FormulaNodes.Operator
 {
     /// <summary>
     /// 表示操作符类型

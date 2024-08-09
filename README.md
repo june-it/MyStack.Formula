@@ -12,7 +12,7 @@ services.AddFormulaParser();
 
 ## 功能
 
-1、运算符运算 `+`、`-`、`*`、`/`、`^`
+1、运算符 `+`、`-`、`*`、`/`、`^`
 ```
 // 调用
 var formulaAnalyzer = serviceProvider.GetRequiredService<FormulaAnalyzer>();
@@ -30,7 +30,7 @@ var formulaAnalyzer = serviceProvider.GetRequiredService<FormulaAnalyzer>();
 var actualValue = formulaAnalyzer.Calculation("(1+1)*2");
 ```
  
-3、数据源计算
+3、数据源
 
 ```
 // 调用

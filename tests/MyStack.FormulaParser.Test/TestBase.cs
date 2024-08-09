@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 namespace MyStack.FormulaParser.Test
@@ -25,7 +24,7 @@ namespace MyStack.FormulaParser.Test
               });
 
             var app = builder.Build();
-            ServiceProvider = app.Services; 
+            ServiceProvider = app.Services;
         }
 
     }

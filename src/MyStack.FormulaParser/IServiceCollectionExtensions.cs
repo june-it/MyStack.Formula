@@ -1,8 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MyStack.FormulaParser.Brackets;
-using MyStack.FormulaParser.Numbers;
-using MyStack.FormulaParser.Operators;
+using MyStack.FormulaParser.FormulaNodes;
+using MyStack.FormulaParser.FormulaNodes.Bracket;
+using MyStack.FormulaParser.FormulaNodes.Operator;
+using MyStack.FormulaParser.FormulaNodes.Value;
 using System;
 
 namespace MyStack.FormulaParser
@@ -11,12 +12,15 @@ namespace MyStack.FormulaParser
     {
         public static IServiceCollection AddFormulaParser(this IServiceCollection services, IConfiguration configuration, Action<IFormulaConfigurator>? configure = null)
         {
-            services.AddTransient<FormulaAnalyzer>();
+
+            services.AddTransient<FormulaEngine>();
+            services.AddTransient<IFormulaNodeAnalyzer, DefaultFormulaNodeAnalyzer>();
+            services.AddTransient<IRpnCalculator, DefaultRpnCalculator>();
             services.AddTransient<IFormulaNodeParser, BracketFormulaNodeParser>();
             services.AddTransient<IFormulaNodeParser, OperatorFormulaNodeParser>();
             services.AddTransient<IFormulaNodeParser, NumberFormulaNodeParser>();
-            services.AddTransient<IFormulaNodeParser, IdFormulaNodeParser>();
-            services.AddTransient<IdFormulaNodeParser>();
+            services.AddTransient<IFormulaNodeParser, ObjectFormulaNodeParser>();
+            services.AddTransient<ObjectFormulaNodeParser>();
 
             var configurator = new DefaultFormulaConfigurator(services);
             configure?.Invoke(configurator);

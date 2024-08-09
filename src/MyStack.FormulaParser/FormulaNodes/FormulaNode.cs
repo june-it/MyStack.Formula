@@ -1,4 +1,4 @@
-﻿namespace MyStack.FormulaParser
+﻿namespace MyStack.FormulaParser.FormulaNodes
 {
     /// <summary>
     /// 表示公式节点

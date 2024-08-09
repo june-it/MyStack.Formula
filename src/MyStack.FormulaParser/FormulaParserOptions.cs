@@ -1,10 +1,10 @@
-﻿using MyStack.FormulaParser.Numbers;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using MyStack.FormulaParser.FormulaNodes.Value;
 
 namespace MyStack.FormulaParser
 {
     public class FormulaParserOptions
     {
-        public List<IdValue>? IdValues { get;set; }
+        public List<ObjectData>? IdValues { get; set; }
     }
 }

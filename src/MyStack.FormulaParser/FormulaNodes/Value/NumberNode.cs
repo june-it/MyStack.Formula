@@ -1,4 +1,4 @@
-﻿namespace MyStack.FormulaParser.Numbers
+﻿namespace MyStack.FormulaParser.FormulaNodes.Value
 {
     /// <summary>
     /// 表示数值节点

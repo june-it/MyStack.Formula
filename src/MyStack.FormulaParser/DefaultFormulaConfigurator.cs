@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using MyStack.FormulaParser.Numbers;
+using MyStack.FormulaParser.FormulaNodes.Value;
 
 namespace MyStack.FormulaParser
 {
@@ -9,10 +9,10 @@ namespace MyStack.FormulaParser
         public DefaultFormulaConfigurator(IServiceCollection services)
         {
             Services = services;
-        } 
+        }
         public void UseConfigurationIdValue()
         {
-            Services.AddTransient<IIdValueProvider, ConfigurationIdValueProvider>();
+            Services.AddTransient<IObjectDataProvider, ConfigurationObjectDataProvider>();
         }
     }
 }
