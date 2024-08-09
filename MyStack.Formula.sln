@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sln", "sln", "{18C989FD-B03D-4C0D-AD8F-75904069A039}"
+	ProjectSection(SolutionItems) = preProject
+		README.MD = README.MD
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B320FF36-C01D-4CE4-B805-12A56D894C57}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyStack.Formula", "src\MyStack.Formula\MyStack.Formula.csproj", "{9F0BE32C-B258-498C-BA47-1BBFBF68DB1A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B5E593A0-D2C6-432F-AFD8-A56AB973A044}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyStack.Formula.Test", "tests\MyStack.Formula.Test\MyStack.Formula.Test.csproj", "{21B8382E-88F1-4EEA-93AD-3F192F56668E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F0BE32C-B258-498C-BA47-1BBFBF68DB1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F0BE32C-B258-498C-BA47-1BBFBF68DB1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F0BE32C-B258-498C-BA47-1BBFBF68DB1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F0BE32C-B258-498C-BA47-1BBFBF68DB1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21B8382E-88F1-4EEA-93AD-3F192F56668E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21B8382E-88F1-4EEA-93AD-3F192F56668E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21B8382E-88F1-4EEA-93AD-3F192F56668E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21B8382E-88F1-4EEA-93AD-3F192F56668E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9F0BE32C-B258-498C-BA47-1BBFBF68DB1A} = {B320FF36-C01D-4CE4-B805-12A56D894C57}
+		{21B8382E-88F1-4EEA-93AD-3F192F56668E} = {B5E593A0-D2C6-432F-AFD8-A56AB973A044}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A28A303-69D0-4016-B808-1A943C09BEED}
+	EndGlobalSection
+EndGlobal
