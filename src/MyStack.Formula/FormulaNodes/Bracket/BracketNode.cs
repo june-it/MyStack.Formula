@@ -17,5 +17,10 @@
         /// 获取括号的类型
         /// </summary>
         public BracketType BracketType { get; }
+
+        public override string ToString()
+        {
+            return BracketType == BracketType.Left ? "(" : ")";
+        }
     }
 }

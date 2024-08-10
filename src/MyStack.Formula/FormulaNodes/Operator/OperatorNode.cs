@@ -35,5 +35,18 @@
                 };
             }
         }
+
+        public override string ToString()
+        {
+            return OperatorType switch
+            {
+                OperatorType.Pow => "^",
+                OperatorType.Multiply => "*",
+                OperatorType.Divide => "/",
+                OperatorType.Plus => "+",
+                OperatorType.Minus => "-",
+                _ => ""
+            };
+        }
     }
 }
