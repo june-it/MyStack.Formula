@@ -45,11 +45,25 @@ namespace MyStack.Formula.Test
             Assert.That(actualValue, Is.EqualTo(7));
         }
         [Test]
-        public void Test_From_Formula()
+        public void Test_From_Formula_FirstBracket()
+        {
+            var formulaEngine = ServiceProvider.GetRequiredService<FormulaEngine>();
+            var actualValue = formulaEngine.Calculate("(2+1)*2+1");
+            Assert.That(actualValue, Is.EqualTo(7));
+        }
+        [Test]
+        public void Test_From_Formula_LastBracket()
         {
             var formulaEngine = ServiceProvider.GetRequiredService<FormulaEngine>();
             var actualValue = formulaEngine.Calculate("1+(2+1)*2");
             Assert.That(actualValue, Is.EqualTo(7));
+        }
+        [Test]
+        public void Test_From_Formula_Complex()
+        {
+            var formulaEngine = ServiceProvider.GetRequiredService<FormulaEngine>();
+            var actualValue = formulaEngine.Calculate("3+4*2/(1-5)^2^3+2*(2+1)");
+            Assert.That(actualValue, Is.EqualTo(9.001953125));
         }
     }
 }

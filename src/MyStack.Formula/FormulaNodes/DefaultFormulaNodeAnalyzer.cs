@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace MyStack.Formula.FormulaNodes
 {
+    /// <summary>
+    /// 实现默认的公式解析器
+    /// </summary>
     public class DefaultFormulaNodeAnalyzer : IFormulaNodeAnalyzer
     {
         public DefaultFormulaNodeAnalyzer(IEnumerable<IFormulaNodeParser> nodeParsers)
