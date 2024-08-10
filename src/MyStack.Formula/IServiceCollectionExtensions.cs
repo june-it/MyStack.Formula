@@ -10,7 +10,14 @@ namespace MyStack.Formula
 {
     public static class IServiceCollectionExtensions
     {
-        public static IServiceCollection AddFormulaParser(this IServiceCollection services, IConfiguration configuration, Action<IFormulaConfigurator>? configure = null)
+        /// <summary>
+        /// 添加公式
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="configuration"></param>
+        /// <param name="configure"></param>
+        /// <returns></returns>
+        public static IServiceCollection AddFormula(this IServiceCollection services, IConfiguration configuration, Action<IFormulaConfigurator>? configure = null)
         {
 
             services.AddTransient<FormulaEngine>();
@@ -21,6 +28,7 @@ namespace MyStack.Formula
             services.AddTransient<IFormulaNodeParser, NumberFormulaNodeParser>();
             services.AddTransient<IFormulaNodeParser, ObjectFormulaNodeParser>();
 #if DEBUG
+            // 用于单元测试
             services.AddTransient<BracketFormulaNodeParser>();
             services.AddTransient<OperatorFormulaNodeParser>();
             services.AddTransient<NumberFormulaNodeParser>();

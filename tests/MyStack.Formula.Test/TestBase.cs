@@ -17,7 +17,7 @@ namespace MyStack.Formula.Test
               })
               .ConfigureServices((context, services) =>
               {
-                  services.AddFormulaParser(context.Configuration, configure =>
+                  services.AddFormula(context.Configuration, configure =>
                   {
                       configure.UseConfigurationIdValue();
                   });
