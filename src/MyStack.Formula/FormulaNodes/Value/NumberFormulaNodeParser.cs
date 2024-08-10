@@ -8,7 +8,7 @@ namespace MyStack.Formula.FormulaNodes.Value
     /// </summary>
     public class NumberFormulaNodeParser : IFormulaNodeParser
     {
-        public int Priority => 99;
+        public int Priority => 2;
 
         public bool Parse(CharacterList chars, ref List<FormulaNode> nodes)
         {

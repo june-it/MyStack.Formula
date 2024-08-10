@@ -6,7 +6,7 @@ namespace MyStack.Formula.FormulaNodes.Operator
 {
     public class OperatorFormulaNodeParser : IFormulaNodeParser
     {
-        public int Priority => 1;
+        public int Priority => 3;
         protected char[] Operators = new[] { '+', '-', '*', '/', '^' };
         public virtual bool Parse(CharacterList chars, ref List<FormulaNode> nodes)
         {

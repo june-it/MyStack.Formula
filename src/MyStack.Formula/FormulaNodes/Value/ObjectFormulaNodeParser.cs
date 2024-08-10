@@ -9,7 +9,7 @@ namespace MyStack.Formula.FormulaNodes.Value
     /// </summary>
     public class ObjectFormulaNodeParser : IFormulaNodeParser
     {
-        public int Priority => 98;
+        public int Priority => 2;
         protected char Prefix => '<';
         protected char Postfix => '>';
         protected IObjectDataProvider ObjectDataProvider { get; }
