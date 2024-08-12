@@ -24,6 +24,23 @@
         /// <summary>
         /// 表示幂 '^'
         /// </summary>
-        Pow
+        Pow,
+        /// <summary>
+        /// 表示正弦（sine） 'SIN'
+        /// </summary>
+        Sin,
+        /// <summary>
+        /// 表示余弦（cosine） 'COS'
+        /// </summary>
+        Cos,
+        /// <summary>
+        /// 表示正切（tangent） 'TAN'
+        /// </summary>
+        Tan,
+        /// <summary>
+        /// 表示余切（cotangent） 'COT'
+        /// </summary>
+        Cot,
+       
     }
 }

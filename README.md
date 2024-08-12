@@ -42,7 +42,13 @@ var actualValue = formulaEngine.Calculate("(1+1)*2");
 // 结果：9.001953125
 var actualValue = formulaEngine.Calculate("3+4*2/(1-5)^2^3+2*(2+1)");
 ```
- 
+
+### 三角函数
+```
+// 调用
+// 结果：1024
+var actualValue = formulaEngine.Calculate("COS(900-3*10*30)+123.45+30*30-0.45+TAN(0)");
+```
 
 ### 数据源
 

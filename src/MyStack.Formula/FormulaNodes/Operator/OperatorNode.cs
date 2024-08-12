@@ -18,7 +18,7 @@
         /// </summary>
         public OperatorType OperatorType { get; }
         /// <summary>
-        /// 优先级
+        /// 获取优先级
         /// </summary>
         public int Priority
         {
@@ -26,12 +26,33 @@
             {
                 return OperatorType switch
                 {
-                    OperatorType.Pow => 6,
-                    OperatorType.Multiply => 5,
-                    OperatorType.Divide => 5,
-                    OperatorType.Plus => 4,
-                    OperatorType.Minus => 4,
+                    OperatorType.Sin => 4,
+                    OperatorType.Cos => 4,
+                    OperatorType.Tan => 4,
+                    OperatorType.Cot => 4,
+                    OperatorType.Pow => 3,
+                    OperatorType.Multiply => 2,
+                    OperatorType.Divide => 2,
+                    OperatorType.Plus => 1,
+                    OperatorType.Minus => 1,
                     _ => 0
+                };
+            }
+        }
+        /// <summary>
+        /// 获取是否为三角函数
+        /// </summary>
+        public bool IsTrigonometricFunction
+        {
+            get
+            {
+                return OperatorType switch
+                {
+                    OperatorType.Sin => true,
+                    OperatorType.Cos => true,
+                    OperatorType.Tan => true,
+                    OperatorType.Cot => true,
+                    _ => false
                 };
             }
         }
@@ -45,7 +66,7 @@
                 OperatorType.Divide => "/",
                 OperatorType.Plus => "+",
                 OperatorType.Minus => "-",
-                _ => ""
+                _ => OperatorType.ToString().ToUpper()
             };
         }
     }
