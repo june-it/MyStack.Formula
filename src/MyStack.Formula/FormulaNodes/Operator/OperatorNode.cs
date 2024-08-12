@@ -1,4 +1,7 @@
-﻿namespace MyStack.Formula.FormulaNodes.Operator
+﻿using System;
+using System.Xml.Linq;
+
+namespace MyStack.Formula.FormulaNodes.Operator
 {
     /// <summary>
     /// 表示操作符节点
@@ -56,7 +59,6 @@
                 };
             }
         }
-
         public override string ToString()
         {
             return OperatorType switch
@@ -69,5 +71,42 @@
                 _ => OperatorType.ToString().ToUpper()
             };
         }
+        /// <summary>
+        /// 获取计算后的值
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        public double Calculate(double x, double y)
+        {
+            return OperatorType switch
+            {
+                OperatorType.Multiply => x * y,
+                OperatorType.Divide => x / y,
+                OperatorType.Plus => x + y,
+                OperatorType.Minus => x - y,
+                OperatorType.Pow => Math.Pow(x, y),
+                _ => throw new InvalidOperationException("不支持的操作符类型。")
+            };
+        }
+        /// <summary>
+        /// 获取三角函数计算后的值
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        public double Calculate(double x)
+        {
+            return OperatorType switch
+            {
+                OperatorType.Sin => Math.Sin(x),
+                OperatorType.Cos => Math.Cos(x),
+                OperatorType.Tan => Math.Tan(x),
+                OperatorType.Cot => 1.0 / Math.Tan(x),
+                _ => throw new InvalidOperationException("不支持的操作符类型。")
+            };
+        }
+        
     }
 }
