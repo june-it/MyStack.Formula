@@ -9,7 +9,7 @@ namespace MyStack.Formula.Test
         [Test]
         public void Test()
         {
-            var nodeParser = ServiceProvider.GetRequiredService<NumberFormulaNodeParser>();
+            var nodeParser = ServiceProvider.GetRequiredService<ValueFormulaNodeParser>();
             var nodes = new List<FormulaNode>();
             CharacterList chars = new CharacterList("1+".ToCharArray());
             nodeParser.Parse(chars, ref nodes);
@@ -18,7 +18,7 @@ namespace MyStack.Formula.Test
         [Test]
         public void Test_Integer()
         {
-            var nodeParser = ServiceProvider.GetRequiredService<NumberFormulaNodeParser>();
+            var nodeParser = ServiceProvider.GetRequiredService<ValueFormulaNodeParser>();
             var nodes = new List<FormulaNode>();
             CharacterList chars = new CharacterList("12345".ToCharArray());
             var result = nodeParser.Parse(chars, ref nodes);
@@ -27,7 +27,7 @@ namespace MyStack.Formula.Test
         [Test]
         public void Test_Float()
         {
-            var nodeParser = ServiceProvider.GetRequiredService<NumberFormulaNodeParser>();
+            var nodeParser = ServiceProvider.GetRequiredService<ValueFormulaNodeParser>();
             var nodes = new List<FormulaNode>();
             CharacterList chars = new CharacterList("12345.234".ToCharArray());
             var result = nodeParser.Parse(chars, ref nodes);
@@ -36,7 +36,7 @@ namespace MyStack.Formula.Test
         [Test]
         public void Test_Negative()
         {
-            var nodeParser = ServiceProvider.GetRequiredService<NumberFormulaNodeParser>();
+            var nodeParser = ServiceProvider.GetRequiredService<ValueFormulaNodeParser>();
             var nodes = new List<FormulaNode>();
             CharacterList chars = new CharacterList("-12345.234".ToCharArray());
             var result = nodeParser.Parse(chars, ref nodes);

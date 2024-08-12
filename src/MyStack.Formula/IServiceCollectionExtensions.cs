@@ -25,13 +25,16 @@ namespace MyStack.Formula
             services.AddTransient<IRpnCalculator, DefaultRpnCalculator>();
             services.AddTransient<IFormulaNodeParser, BracketFormulaNodeParser>();
             services.AddTransient<IFormulaNodeParser, OperatorFormulaNodeParser>();
-            services.AddTransient<IFormulaNodeParser, NumberFormulaNodeParser>();
+            services.AddTransient<IFormulaNodeParser, TrigonometricFunctionFormulaNodeParser>();
+            
+            services.AddTransient<IFormulaNodeParser, ValueFormulaNodeParser>();
             services.AddTransient<IFormulaNodeParser, ObjectFormulaNodeParser>();
 #if DEBUG
             // 用于单元测试
             services.AddTransient<BracketFormulaNodeParser>();
             services.AddTransient<OperatorFormulaNodeParser>();
-            services.AddTransient<NumberFormulaNodeParser>();
+            services.AddTransient<TrigonometricFunctionFormulaNodeParser>(); 
+            services.AddTransient<ValueFormulaNodeParser>();
             services.AddTransient<ObjectFormulaNodeParser>();
 #endif
 

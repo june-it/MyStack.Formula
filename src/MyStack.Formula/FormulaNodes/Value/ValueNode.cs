@@ -3,13 +3,13 @@
     /// <summary>
     /// 表示数值节点
     /// </summary>
-    public class NumberNode : FormulaNode
+    public class ValueNode : FormulaNode
     {
         /// <summary>
         /// 初始化一个数值节点对象
         /// </summary>
         /// <param name="value">数值</param>
-        public NumberNode(double value) : base(NodeType.Number)
+        public ValueNode(double value) : base(NodeType.Value)
         {
             Value = value;
         }

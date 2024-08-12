@@ -4,9 +4,9 @@ using System.Collections.Generic;
 namespace MyStack.Formula.FormulaNodes.Value
 {
     /// <summary>
-    /// 数值节点转换器实现
+    /// 值节点转换器实现
     /// </summary>
-    public class NumberFormulaNodeParser : IFormulaNodeParser
+    public class ValueFormulaNodeParser : IFormulaNodeParser
     {
         public int Priority => 2;
 
@@ -48,7 +48,7 @@ namespace MyStack.Formula.FormulaNodes.Value
             }
             if (flag)
             {
-                nodes.Add(new NumberNode(value));
+                nodes.Add(new ValueNode(value));
             }
             return flag;
         }

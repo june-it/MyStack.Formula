@@ -15,7 +15,7 @@ namespace MyStack.Formula.FormulaNodes
             var tempNodes = new Stack<FormulaNode>();
             foreach (FormulaNode node in nodes)
             {
-                if (node.NodeType == NodeType.Number)
+                if (node.NodeType == NodeType.Value)
                 {
                     // 纯数字直接入队列
                     rpnNodes.Add(node);
@@ -72,43 +72,27 @@ namespace MyStack.Formula.FormulaNodes
             Stack<FormulaNode> numberNodes = new Stack<FormulaNode>();
             foreach (var node in rpnNodes)
             {
-                if (node.NodeType == NodeType.Number)
+                if (node.NodeType == NodeType.Value)
                     numberNodes.Push(node);
                 else if (node.NodeType == NodeType.Operator)
                 {
                     var operatorNode = (OperatorNode)node;
                     if (operatorNode.IsTrigonometricFunction)
                     {
-                        var x = (NumberNode)numberNodes.Pop();
-                        var value = operatorNode.OperatorType switch
-                        {
-                            OperatorType.Sin => Math.Sin(x.Value),
-                            OperatorType.Cos => Math.Cos(x.Value),
-                            OperatorType.Tan => Math.Tan(x.Value),
-                            OperatorType.Cot => 1.0 / Math.Tan(x.Value),
-                            _ => throw new InvalidOperationException("不支持的操作符类型。")
-                        };
-                        numberNodes.Push(new NumberNode(value));
+                        var x = (ValueNode)numberNodes.Pop();
+                        var value = operatorNode.Calculate(x.Value);
+                        numberNodes.Push(new ValueNode(value));
                     }
                     else
                     {
-                        var y = (NumberNode)numberNodes.Pop();
-                        var x = (NumberNode)numberNodes.Pop();
-                        var value = operatorNode.OperatorType switch
-                        {
-                            OperatorType.Multiply => x.Value * y.Value,
-                            OperatorType.Divide => x.Value / y.Value,
-                            OperatorType.Plus => x.Value + y.Value,
-                            OperatorType.Minus => x.Value - y.Value,
-                            OperatorType.Pow => Math.Pow(x.Value, y.Value),
-                            _ => throw new InvalidOperationException("不支持的操作符类型。")
-                        };
-                        numberNodes.Push(new NumberNode(value));
+                        var y = (ValueNode)numberNodes.Pop();
+                        var x = (ValueNode)numberNodes.Pop();
+                        var value = operatorNode.Calculate(x.Value, y.Value);
+                        numberNodes.Push(new ValueNode(value));
                     }
-
                 }
             }
-            return ((NumberNode)numberNodes.Pop()).Value;
+            return ((ValueNode)numberNodes.Pop()).Value;
         }
     }
 }

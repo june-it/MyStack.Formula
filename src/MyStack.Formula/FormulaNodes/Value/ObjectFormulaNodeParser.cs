@@ -39,7 +39,7 @@ namespace MyStack.Formula.FormulaNodes.Value
                 if (double.TryParse(value, out var number))
                 {
                     // 转换成数字
-                    nodes.Add(new NumberNode(number));
+                    nodes.Add(new ValueNode(number));
                 }
                 else
                 {

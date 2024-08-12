@@ -6,9 +6,9 @@
     public enum NodeType
     {
         /// <summary>
-        /// 表示数值
+        /// 表示值
         /// </summary>
-        Number,
+        Value,
         /// <summary>
         /// 表示操作符
         /// </summary>
